@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SDWebImage
+import SnapKit
+import Alamofire
 
 class ViewController: UINavigationController,UITableViewDelegate,UITableViewDataSource {
     var tableView = UITableView()
@@ -15,12 +18,17 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        tableView = UITableView(frame: CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height), style: UITableViewStyle.plain)
+//        tableView = UITableView(frame: CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height), style: UITableViewStyle.plain)
         tableView.dataSource = self;
         tableView.delegate = self;
         //注册cell
         tableView.register(CustomCell.classForCoder(), forCellReuseIdentifier: "cellID")
         self.view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.left.right.bottom.equalTo(0)
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,6 +80,8 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
         // Dispose of any resources that can be recreated.
     }
 
-
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
 }
 
