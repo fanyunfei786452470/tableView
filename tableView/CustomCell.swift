@@ -13,6 +13,18 @@ class CustomCell: UITableViewCell {
     
     //闭包类型 1.()->(),参数，无返回值
        var btnClickBlock:(()->())?
+    var newModel:Items!
+    
+    var model:Items{
+        set{
+            self.newModel = newValue
+            
+            self.ImageView.sd_setImage(with: NSURL(string:self.newModel.cover_image_url)! as URL)
+        }
+        get{
+            return self.newModel
+        }
+    }
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -36,10 +48,10 @@ class CustomCell: UITableViewCell {
     
     lazy var ImageView: UIImageView = {
         let tempImage = UIImageView(frame:CGRect(x: 10, y: 10, width: 80, height: 80))
-//        tempImage.layer.masksToBounds = true;
-//        tempImage.layer.cornerRadius = 15
+        tempImage.layer.masksToBounds = true;
+        tempImage.layer.cornerRadius = 15
         tempImage.backgroundColor = UIColor.red
-        tempImage.image = UIImage(named:"IMG_0138.jpg")
+//        tempImage.sd_setImage(with: NSURL(string:"http://img03.liwushuo.com/image/170110/d9m77b0sn.jpg-w720")! as URL)
         return tempImage
         
     }()
@@ -69,7 +81,7 @@ class CustomCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

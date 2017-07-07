@@ -10,29 +10,26 @@ import UIKit
 import SDWebImage
 import SnapKit
 import Alamofire
+import HandyJSON
 
 class ViewController: UINavigationController,UITableViewDelegate,UITableViewDataSource {
     var tableView = UITableView()
     
+    
+    lazy var dataSource:NSMutableArray = {
+        let array = NSMutableArray()
+        return array
+        
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-//        tableView = UITableView(frame: CGRect(x:0,y:0,width:self.view.frame.size.width,height:self.view.frame.size.height), style: UITableViewStyle.plain)
-        tableView.dataSource = self;
-        tableView.delegate = self;
-        //注册cell
-        tableView.register(CustomCell.classForCoder(), forCellReuseIdentifier: "cellID")
-        self.view.addSubview(tableView)
-        
-        tableView.snp.makeConstraints { (make) in
-            make.top.left.right.bottom.equalTo(0)
-        }
-        
+        initUI()
+        getData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return self.dataSource.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,17 +38,12 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identify = "cellID"
-        let cell:CustomCell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath) as! CustomCell
+        var cell:CustomCell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath) as! CustomCell
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: identify) as! CustomCell
+        }
+        cell.model = self.dataSource[indexPath.row] as! Items
         
-//        if (cell == nil) {
-//            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: identify)
-//        }
-        
-//        if cell == nil {
-//            cell = CustomCell(style: UITableViewCellStyle.default, reuseIdentifier: identify)
-//        }
-
-//        cell?.textLabel?.text = "nimeia"
         weak var weakSelf = self
         cell.btnClickBlock = {
             let alertController = UIAlertController(title: "点我干吊", message: "massage", preferredStyle: .alert)
@@ -62,7 +54,6 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
             alertController.addAction(cancelAction)
             alertController.addAction(okAction)
             weakSelf?.present(alertController, animated: true, completion: nil)
-            
         }
         return cell
     }
@@ -74,7 +65,6 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
         return 100
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -83,5 +73,34 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
     override var prefersStatusBarHidden: Bool{
         return true
     }
+    fileprivate func initUI(){
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        //注册cell
+        tableView.register(CustomCell.classForCoder(), forCellReuseIdentifier: "cellID")
+        self.view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.left.right.bottom.equalTo(0)
+        }
+    }
+    
+    fileprivate func getData() {
+        
+        let RequestUrl = "http://api.liwushuo.com/v2/channels/121/items?generation=2%0A%E5%A8%B1%E4%B9%90&gender=1&limit=20&offset=20"
+        weak var weakSelf = self;
+       Alamofire.request(RequestUrl, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { (response) in
+        if response.result.isSuccess{
+            if let jsonString = response.result.value{
+                if let responseModel = JSONDeserializer<CustomModel>.deserializeFrom(json: jsonString){
+                    for model in responseModel.data.items{
+                        weakSelf?.dataSource.add(model)
+                    }
+                    weakSelf?.tableView.reloadData()
+                }
+            }
+        }
+    }
+}
 }
 

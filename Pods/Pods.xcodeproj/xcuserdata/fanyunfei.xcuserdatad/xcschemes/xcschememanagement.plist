@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HandyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-tableView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2771B241FCE337E606D5617826A23443</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>36C28A483BD799563CE7DA079BE497FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3D807DD10652B75F0328AE62FF1AA6C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E451000A69F1FFE08959DFBBB42A021</key>
+		<key>636B3A7D9E5B9B94BC978DCFAE3C5EE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A29ABF4F9C41A6BE99817BA98C3CF575</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ACB36EB3886AE78869A12851C0D8729B</key>
+		<key>C70C8DB0D52B4A333880A5BCBF223FC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

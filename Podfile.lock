@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.0)
+  - HandyJSON (1.7.2)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -7,14 +8,16 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - HandyJSON
   - SDWebImage
   - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  HandyJSON: e7ad0483005826baba1d1c251cd98d0aa8bd8cce
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 930eaeb0c79e1f9d0ae7ebc5962fee9eb6ffce08
+PODFILE CHECKSUM: b4536d58a042eac8100db2ff7d0d03a0ba58ec95
 
 COCOAPODS: 1.2.0

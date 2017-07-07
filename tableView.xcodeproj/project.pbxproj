@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0DAB031F0DD72C00E04349 /* RequestTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DAB021F0DD72C00E04349 /* RequestTool.swift */; };
+		0F0DAB071F0DEA4400E04349 /* CustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DAB061F0DEA4400E04349 /* CustomModel.swift */; };
 		0F0EC8EC1F0C9777005ADB74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0EC8EB1F0C9777005ADB74 /* AppDelegate.swift */; };
 		0F0EC8EE1F0C9777005ADB74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0EC8ED1F0C9777005ADB74 /* ViewController.swift */; };
 		0F0EC8F11F0C9777005ADB74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F0EC8EF1F0C9777005ADB74 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0DAB021F0DD72C00E04349 /* RequestTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTool.swift; sourceTree = "<group>"; };
+		0F0DAB061F0DEA4400E04349 /* CustomModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModel.swift; sourceTree = "<group>"; };
 		0F0EC8E81F0C9777005ADB74 /* tableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F0EC8EB1F0C9777005ADB74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F0EC8ED1F0C9777005ADB74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				0F0EC8EB1F0C9777005ADB74 /* AppDelegate.swift */,
 				0F0EC8ED1F0C9777005ADB74 /* ViewController.swift */,
 				0F0EC9191F0CA08E005ADB74 /* CustomCell.swift */,
+				0F0DAB021F0DD72C00E04349 /* RequestTool.swift */,
+				0F0DAB061F0DEA4400E04349 /* CustomModel.swift */,
 				0F0EC8EF1F0C9777005ADB74 /* Main.storyboard */,
 				0F0EC8F21F0C9777005ADB74 /* Assets.xcassets */,
 				0F0EC91B1F0CB595005ADB74 /* IMG_0138.jpg */,
@@ -456,7 +462,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F0DAB031F0DD72C00E04349 /* RequestTool.swift in Sources */,
 				0F0EC8EE1F0C9777005ADB74 /* ViewController.swift in Sources */,
+				0F0DAB071F0DEA4400E04349 /* CustomModel.swift in Sources */,
 				0F0EC91A1F0CA08E005ADB74 /* CustomCell.swift in Sources */,
 				0F0EC8EC1F0C9777005ADB74 /* AppDelegate.swift in Sources */,
 			);

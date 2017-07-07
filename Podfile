@@ -7,6 +7,7 @@ target 'tableView' do
 pod 'Alamofire'
 pod 'SnapKit'
 pod 'SDWebImage'
+pod 'HandyJSON'
   # Pods for tableView
 
   target 'tableViewTests' do
