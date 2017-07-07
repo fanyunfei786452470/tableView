@@ -38,10 +38,10 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identify = "cellID"
-        var cell:CustomCell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath) as! CustomCell
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: identify) as! CustomCell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: identify) as!CustomCell
+//        if cell == nil {
+//            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: identify) as! CustomCell
+//        }
         cell.model = self.dataSource[indexPath.row] as! Items
         
         weak var weakSelf = self
@@ -74,6 +74,7 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
         return true
     }
     fileprivate func initUI(){
+
         tableView.dataSource = self;
         tableView.delegate = self;
         //注册cell
@@ -83,6 +84,7 @@ class ViewController: UINavigationController,UITableViewDelegate,UITableViewData
         tableView.snp.makeConstraints { (make) in
             make.top.left.right.bottom.equalTo(0)
         }
+        
     }
     
     fileprivate func getData() {
